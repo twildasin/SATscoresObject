@@ -173,6 +173,22 @@ public class HighSchool {
         return rSum / total;
     }
 
+    public int getAverage()
+    {
+        int total = 0;
+        int Sum = 0;
+        for(int i = 0; i < group.length ; i++)
+        {
+            int combined = group[i].satRead + group[i].satMath + group[i].satWrit;
+            if(combined > 0)
+            {
+                Sum += combined;
+            }
+            total++;
+        }
+        return Sum / total;
+    }
+
     //Same as "getMathAverage", but with Writing SAT scores. See "getMathAverage" method
     public int getWritAverage()
     {
@@ -187,6 +203,71 @@ public class HighSchool {
             total++;
         }
         return wSum / total;
+    }
+
+    public void printTop()
+    {
+        int high1 = 0, pos1 = 0, high2 = 0, pos2 = 0, high3 = 0, pos3 = 0;
+        String first = "", second = "", third = "";
+        for(int i = 0; i < group.length ; i++)
+        {
+            int combined = group[i].satRead + group[i].satMath + group[i].satWrit;
+            if (combined > 0) {
+
+
+
+                if (combined == high3)
+                {
+                    third += "\t&\t" + group[i].name + ":\t" + combined;
+                }
+                else if(combined> high3 && combined < high2)
+                {
+                    third = group[i].name + ":\t" + combined;
+                    pos3=i;
+                    high3 = combined;
+                }
+
+                if (combined == high2)
+                {
+                    second += "\t&\t" + group[i].name + ":\t" + combined;
+                }
+                else if(combined > high2 && combined < high1)
+                {
+                    second = group[i].name + ":\t" + combined;
+                    pos3 = pos2;
+                    high3 = high2;
+
+                    pos2 = i;
+                    high2 = combined;
+                }
+
+                if (combined == high1)
+                {
+                    first += "\t&\t" + group[i].name + ":\t" + combined;
+
+                }
+                else if(combined > high1)
+                {
+                    first = group[i].name + ":\t" + combined;
+
+                    pos3 = pos2;
+                    high3 = high2;
+                    pos2 = pos1;
+                    high2 = high1;
+
+                    pos1 = i;
+                    high1 = combined;
+                }
+
+            }
+        }
+        System.out.println("\n\n\nTOP THREE SCHOOLS SAT SCORES:");
+        System.out.println("1st-\t" + first);
+        System.out.println("2nd-\t" + second);
+        System.out.println("3rd-\t" + third);
+/*        System.out.println("1st-\t" + group[pos1].name + ":\t" + high1);
+        System.out.println("2nd-\t" + group[pos2].name + ":\t" + high2);
+        System.out.println("3rd-\t" + group[pos3].name + ":\t" + high3);*/
     }
 
 }

@@ -95,12 +95,18 @@ public class Main {
             System.out.println("\nSCHOOL: " + NY[i].name + "\nAVERAGE SAT SCORES:\tMATH-" + NY[i].satMath + "\tREADING-" + NY[i].satRead + "\tWRITING-" + NY[i].satWrit);
         }
 
-        NewYork.printTopThreeMath();
+/*        NewYork.printTopThreeMath();
         NewYork.printTopThreeRead();
-        NewYork.printTopThreeWrit();
-        System.out.println("\nNEW YORK MATH SAT AVERAGE:\t" + NewYork.getMathAverage());
+        NewYork.printTopThreeWrit();*/
+
+
+        NewYork.printTop();
+        System.out.println("\nNEW YORK SAT AVERAGE:\t" + NewYork.getAverage());
+
+
+/*        System.out.println("\nNEW YORK MATH SAT AVERAGE:\t" + NewYork.getMathAverage());
         System.out.println("NEW YORK READING SAT AVERAGE:\t" + NewYork.getReadAverage());
-        System.out.println("NEW YORK WRITING SAT AVERAGE:\t" + NewYork.getWritAverage());
+        System.out.println("NEW YORK WRITING SAT AVERAGE:\t" + NewYork.getWritAverage());*/
 
 
     }
